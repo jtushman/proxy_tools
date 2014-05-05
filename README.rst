@@ -8,6 +8,14 @@ I'm just a proxy
 Loveingly extracted from `werkzeug`_.  A very useful proxy implementation, that I found to be useful outside
 the web context -- hence the extraction.
 
+Impedius
+--------
+
+I was working on a module and I wanted it to have a @property like you can do on `objects`.  No dice.  
+I found an elegant implementation within werkzeug with request and session and the like.  So I extracted it so we can use it
+for our non-werkzeug projects.
+
+
 Install
 -------
 
@@ -22,7 +30,7 @@ Basic Usage
 -----------
 
 .. code:: python
-
+    # your_module/__init__.py
     from proxy_tools import Proxy
     p = Proxy()
 
@@ -39,7 +47,8 @@ Basic Usage
     def current_user():
         return User.find_by_id(request['user_id'])
 
-    # Then
+    # Then elsewhere
+    from your_module import current_user
     print(current_user.name)
 
 
