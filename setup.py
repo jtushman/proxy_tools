@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 required_modules = []
-packages = 'proxy_tools'
+packages = ['proxy_tools']
 
 setup(name='proxy_tools',
       version='0.1.0',
