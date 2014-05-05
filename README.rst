@@ -23,7 +23,7 @@ Install
 
     pip install proxy
 
-.. |Build Status| image:: https://travis-ci.org/jtushman/proxy.svg?branch=master
+.. |Build Status| image:: https://travis-ci.org/jtushman/proxy_tools.svg?branch=master
    :target: https://travis-ci.org/jtushman/proxy_tools
 
 Basic Usage
