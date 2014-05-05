@@ -41,18 +41,21 @@ Basic Usage
     def current_user():
         return User.find_by_id(request['user_id'])
         
-    # Or alternatively
+    # Then elsewhere
+    from your_module import current_user
+    print(current_user.name)
+
+
+Alternative Syntax
+
+.. code:: python
+
     from proxy_tools import Proxy
 
     def get_current_user():
         return User.find_by_id(request['user_id'])
 
     current_user = Proxy(get_current_user)
-
-
-    # Then elsewhere
-    from your_module import current_user
-    print(current_user.name)
 
 
 Questions / Issues
