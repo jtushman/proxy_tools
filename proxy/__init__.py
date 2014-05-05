@@ -1,3 +1,13 @@
+"""
+    proxy.py
+    ~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Proxy. Extracted from Werkzeug
+
+    :copyright: (c) 2013 by Armin Ronacher (adapted by Jonathan Tushman 2014).
+    :license: BSD, see LICENSE for more details.
+"""
+
 import sys
 PY2 = sys.version_info[0] == 2
 
@@ -13,44 +23,34 @@ else:
 
 @implements_bool
 class Proxy(object):
-    """Acts as a proxy for a werkzeug local.  Forwards all operations to
+    """Proxy for object passed into the constructor.  Forwards all operations to
     a proxied object.  The only operations not supported for forwarding
     are right handed operands and any kind of assignment.
 
     Example usage::
 
-        from werkzeug.local import Local
-        l = Local()
+        from proxy import Proxy
+        p = Proxy()
 
-        # these are proxies
-        request = l('request')
-        user = l('user')
+        def get_current_user():
+            return User.find_by_id(request['user_id'])
+
+        current_user = p(get_current_user)
 
 
-        from werkzeug.local import LocalStack
-        _response_local = LocalStack()
+        # Or alternatively
 
-        # this is a proxy
-        response = _response_local()
+        from proxy import module_property
 
-    Whenever something is bound to l.user / l.request the proxy objects
-    will forward all operations.  If no object is bound a :exc:`RuntimeError`
-    will be raised.
+        @module_property
+        def current_user():
+            return User.find_by_id(request['user_id'])
 
-    To create proxies to :class:`Local` or :class:`LocalStack` objects,
-    call the object as shown above.  If you want to have a proxy to an
-    object looked up by a function, you can (as of Werkzeug 0.6.1) pass
-    a function to the :class:`LocalProxy` constructor::
-
-        session = LocalProxy(lambda: get_current_request().session)
-
-    .. versionchanged:: 0.6.1
-       The class can be instanciated with a callable as well now.
     """
     __slots__ = ('__local', '__dict__', '__name__')
 
     def __init__(self, local, name=None):
-        object.__setattr__(self, '_LocalProxy__local', local)
+        object.__setattr__(self, '_Proxy__local', local)
         object.__setattr__(self, '__name__', name)
 
     def _get_current_object(self):
@@ -173,4 +173,7 @@ class Proxy(object):
     __rmod__ = lambda x, o: o % x._get_current_object()
     __rdivmod__ = lambda x, o: x._get_current_object().__rdivmod__(o)
 
+
+# Friendly Aliases
 module_property = Proxy
+proxy = Proxy
