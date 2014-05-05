@@ -2,12 +2,12 @@ import os
 from setuptools import setup
 
 required_modules = []
-packages = 'proxy'
+packages = 'proxy_tools'
 
-setup(name='proxy',
+setup(name='proxy_tools',
       version='0.1.0',
       description='Proxy Implementation',
-      url='http://github.com/jtushman/proxy',
+      url='http://github.com/jtushman/proxy_tools',
       author='Jonathan Tushman',
       author_email='jonathan@zefr.com',
       install_requires=required_modules,

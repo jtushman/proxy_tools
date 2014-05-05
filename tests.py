@@ -10,11 +10,11 @@
 """
 
 import nose
-import proxy
+import proxy_tools
 
 def test_proxy():
     foo = []
-    ls = proxy.Proxy(lambda: foo)
+    ls = proxy_tools.Proxy(lambda: foo)
     ls.append(42)
     ls.append(23)
     ls[1:] = [1, 2, 3]
@@ -26,7 +26,7 @@ def test_proxy():
 
 def test_proxy_operations_math():
     foo = 2
-    ls = proxy.Proxy(lambda: foo)
+    ls = proxy_tools.Proxy(lambda: foo)
     assert ls + 1 == 3
     assert 1 + ls == 3
     assert ls - 1 == 1
@@ -42,7 +42,7 @@ def test_proxy_operations_math():
 
 def test_proxy_operations_strings():
     foo = "foo"
-    ls = proxy.Proxy(lambda: foo)
+    ls = proxy_tools.Proxy(lambda: foo)
     assert ls + "bar" == "foobar"
     assert "bar" + ls == "barfoo"
     assert ls * 2 == "foofoo"
@@ -52,7 +52,7 @@ def test_proxy_operations_strings():
 
 def test_proxies_with_callables():
     foo = 42
-    ls = proxy.Proxy(lambda: foo)
+    ls = proxy_tools.Proxy(lambda: foo)
     assert ls == 42
     foo = [23]
     ls.append(42)

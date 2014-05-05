@@ -1,12 +1,12 @@
-proxy
+proxy_tools
 ==============
 
 I'm just a proxy
 
 |Build Status|
 
-Lovely extracted from werkzeug.  A very useful proxy implementation, that I found to be useful outside
-the web context -- hence the extraction
+Loveingly extracted from `werkzeug`_.  A very useful proxy implementation, that I found to be useful outside
+the web context -- hence the extraction.
 
 Install
 -------
@@ -16,14 +16,14 @@ Install
     pip install proxy
 
 .. |Build Status| image:: https://travis-ci.org/jtushman/proxy.svg?branch=master
-:target: https://travis-ci.org/jtushman/state_machine
+:target: https://travis-ci.org/jtushman/proxy_tools
 
 Basic Usage
 -----------
 
 .. code:: python
 
-    from proxy import Proxy
+    from proxy_tools import Proxy
     p = Proxy()
 
     def get_current_user():
@@ -31,10 +31,9 @@ Basic Usage
 
     current_user = p(get_current_user)
 
-
     # Or alternatively
 
-    from proxy import module_property
+    from proxy_tools import module_property
 
     @module_property
     def current_user():
@@ -48,7 +47,7 @@ Questions / Issues
 ------------------
 
 Feel free to ping me on twitter: `@tushman`_
-or add issues or PRs at https://github.com/jtushman/proxy
+or add issues or PRs at https://github.com/jtushman/proxy_tools
 
 .. _@tushman: http://twitter.com/tushman
 
@@ -57,5 +56,4 @@ Thank you
 
 To Armin Ronacher and the `werkzeug`_ team for their thought leadership and excellent work
 
-.. _werkzeug: https://github.com/werkzeug/werkzeug
-
+.. _werkzeug: https://github.com/mitsuhiko/werkzeug
