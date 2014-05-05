@@ -15,6 +15,9 @@ I was working on a module and I wanted it to have a @property like you can do on
 I found an elegant implementation within werkzeug with request and session and the like.  So I extracted it so we can use it
 for our non-werkzeug projects.
 
+For more on the nitty gritty on why this works, checkout this `post`_ 
+
+.. _post: http://jtushman.github.io/blog/2014/05/02/module-properties/
 
 Install
 -------
