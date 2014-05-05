@@ -21,7 +21,7 @@ Install
 
 .. code:: bash
 
-    pip install proxy
+    pip install proxy_tools
 
 .. |Build Status| image:: https://travis-ci.org/jtushman/proxy_tools.svg?branch=master
    :target: https://travis-ci.org/jtushman/proxy_tools
