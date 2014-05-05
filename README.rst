@@ -30,22 +30,22 @@ Basic Usage
 -----------
 
 .. code:: python
+
     # your_module/__init__.py
-    from proxy_tools import Proxy
-    p = Proxy()
-
-    def get_current_user():
-        return User.find_by_id(request['user_id'])
-
-    current_user = p(get_current_user)
-
-    # Or alternatively
-
     from proxy_tools import module_property
 
     @module_property
     def current_user():
         return User.find_by_id(request['user_id'])
+        
+    # Or alternatively
+    from proxy_tools import Proxy
+
+    def get_current_user():
+        return User.find_by_id(request['user_id'])
+
+    current_user = Proxy(get_current_user)
+
 
     # Then elsewhere
     from your_module import current_user
