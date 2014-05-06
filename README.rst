@@ -1,15 +1,15 @@
 proxy_tools
 ==============
 
-I'm just a proxy
+Did you every want to have @property on a module? ...
 
 |Build Status|
 
 Loveingly extracted from `werkzeug`_.  A very useful proxy implementation, that I found to be useful outside
 the web context -- hence the extraction.
 
-Impedius
---------
+Impetus
+-------
 
 I was working on a module and I wanted it to have a @property like you can do on `objects`.  No dice.  
 I found an elegant implementation within werkzeug with request and session and the like.  So I extracted it so we can use it
